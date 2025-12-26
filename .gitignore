@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+.DS_Store
+# 如果不想上傳 PDF 或解析後的檔案，可以取消下面註解
+# *.pdf
+# *_parsed.md
