@@ -4,7 +4,10 @@ import markdown
 from html2image import Html2Image
 import os
 
-pdf_path = "Benchmarking_Collaborative_AI_Agents.pdf"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR   = os.path.dirname(SCRIPT_DIR)
+
+pdf_path = os.path.join(ROOT_DIR, "data", "Benchmarking_Collaborative_AI_Agents.pdf")
 doc = fitz.open(pdf_path)
 
 # Find page with "LM-Simulated User"
@@ -20,7 +23,7 @@ print(f"Using page {page_num}")
 # 1. Capture original PDF page as image
 page = doc[page_num]
 pix = page.get_pixmap(dpi=150)
-pix.save("sample_pdf.png")
+pix.save(os.path.join(ROOT_DIR, "assets", "sample_pdf.png"))
 
 # 2. PyMuPDF output
 fitz_text = page.get_text()
@@ -48,7 +51,7 @@ if keyword_to_find not in docling_text:
     keyword_to_find = "Dual-Control"
 
 # 4. LlamaParse output (load from the existing parsed markdown)
-with open("Benchmarking_Collaborative_AI_Agents_parsed.md", "r", encoding="utf-8") as f:
+with open(os.path.join(ROOT_DIR, "data", "Benchmarking_Collaborative_AI_Agents_parsed.md"), "r", encoding="utf-8") as f:
     llama_text = f.read()
 
 fitz_snippet = extract_snippet(fitz_text, keyword_to_find)

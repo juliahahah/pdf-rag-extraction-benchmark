@@ -50,7 +50,7 @@ flowchart TD
 
 | 原始 PDF（折線圖頁） | LlamaParse | Docling | PyMuPDF |
 |:---:|:---:|:---:|:---:|
-| ![pdf](./p3.png) | ![llama](./sample_llama.png) | ![docling](./sample_docling.png) | ![fitz](./sample_fitz.png) |
+| ![pdf](./assets/p3.png) | ![llama](./assets/sample_llama.png) | ![docling](./assets/sample_docling.png) | ![fitz](./assets/sample_fitz.png) |
 
 ---
 
@@ -120,10 +120,10 @@ pip install llama-parse llama-index docling
 執行範例：
 
 ```bash
-python demo_llama_parse.py
+python scripts/demo_llama_parse.py
 ```
 
-你可以根據 `demo_llama_parse.py` 修改，對比多種工具的輸出。
+你可以根據 `scripts/demo_llama_parse.py` 修改，對比多種工具的輸出。
 
 ---
 
@@ -149,6 +149,33 @@ python demo_llama_parse.py
 - [IBM Docling](https://github.com/IBM/docling)
 - [Marker](https://github.com/gaozhiyan/Marker)
 - [ColPali (Vision-based RAG)](https://github.com/ColPali/ColPali)
+
+---
+
+---
+
+## 📁 Project Structure
+
+```
+pdf-rag-extraction-benchmark/
+├── data/
+│   ├── Benchmarking_Collaborative_AI_Agents.pdf   # 範例輸入 PDF
+│   └── Benchmarking_Collaborative_AI_Agents_parsed.md  # LlamaParse 解析輸出
+├── scripts/
+│   ├── demo_llama_parse.py      # LlamaParse 範例腳本
+│   ├── generate_images.py       # 用 fitz/Docling 產生比較截圖
+│   ├── gen_comparison_imgs.py   # 用 matplotlib 產生工具比較圖
+│   └── gen_pngs.py              # 將 Markdown 表格渲染成 PNG
+├── assets/
+│   ├── p3.png ~ p6.png          # PDF 原始頁面截圖
+│   ├── sample_llama.png         # LlamaParse 輸出截圖
+│   ├── sample_docling.png       # Docling 輸出截圖
+│   ├── sample_fitz.png          # PyMuPDF 輸出截圖
+│   └── sample_pdf.png           # 其他 PDF 頁面截圖
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
 
 ---
 

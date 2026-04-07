@@ -12,7 +12,7 @@ from llama_parse import LlamaParse
 API_KEY = "請填入您的_LLAMA_INDEX_API_KEY" 
 
 # 2. 設定要讀取的 PDF 檔案路徑
-FILE_PATH = "./Benchmarking_Collaborative_AI_Agents.pdf"
+FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "Benchmarking_Collaborative_AI_Agents.pdf")
 
 # ---------------------------------------------------------
 # 主程式
